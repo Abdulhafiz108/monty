@@ -25,6 +25,11 @@ int _execute(stack_t **stack, char *cmd, int line_number)
 		pint(*stack, line_number);
 		return (0);
 	}
+	if (strcmp(cmd, "pop") == 0)
+	{
+		pop(stack, line_number);
+		return (0);
+	}
 	fprintf(stderr, "L%d: unknown instruction %s\n", line_number, cmd);
 	exit(EXIT_FAILURE);
 }
@@ -109,4 +114,26 @@ void pint(stack_t *stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	printf("%d\n", stack->n);
+}
+
+/**
+ * pop - Removes the top element of the stack.
+ * @stack: List containing elements of the stack.
+ * @line_number: Line number of command.
+ */
+
+void pop(stack_t **stack, unsigned int line_number)
+{
+	stack_t *new;
+
+	if (stack == NULL)
+	{
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	new = *stack;
+	*stack = (*stack)->next;
+	free(new);
+	if (*stack != NULL)
+		(*stack)->prev = NULL;
 }
