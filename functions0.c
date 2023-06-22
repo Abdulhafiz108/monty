@@ -40,6 +40,10 @@ int _execute(stack_t **stack, char *cmd, int line_number)
 		add(stack, line_number);
 		return (0);
 	}
+	if (strcmp(cmd, "nop") == 0)
+	{
+		return (0);
+	}
 	fprintf(stderr, "L%d: unknown instruction %s\n", line_number, cmd);
 	exit(EXIT_FAILURE);
 }
