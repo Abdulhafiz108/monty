@@ -2,6 +2,7 @@
 
 /**
  * _execute - It executes the input commands.
+ * @stack: List containing inputs.
  * @cmd: Holds the input command.
  * @line_number: The line number of command.
  * Return: 0 on success and EXIT_FAILURE otherwise.
@@ -27,7 +28,6 @@ int _execute(stack_t **stack, char *cmd, int line_number)
  * push - Adds an element to the top of the stack.
  * @stack: The list containing the elements of the stack.
  * @line_number: The line number of command.
- * @cmd: The input command.
  */
 
 void push(stack_t **stack, unsigned int line_number)
@@ -73,7 +73,6 @@ void push(stack_t **stack, unsigned int line_number)
 /**
  * pall - Prints all the elements of a stack.
  * @stack: List containing elements of the stack.
- * @line_number: The line number of command.
  */
 
 void pall(stack_t *stack)
