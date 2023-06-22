@@ -30,6 +30,16 @@ int _execute(stack_t **stack, char *cmd, int line_number)
 		pop(stack, line_number);
 		return (0);
 	}
+	if (strcmp(cmd, "swap") == 0)
+	{
+		swap(stack, line_number);
+		return (0);
+	}
+	if (strcmp(cmd, "add") == 0)
+	{
+		add(stack, line_number);
+		return (0);
+	}
 	fprintf(stderr, "L%d: unknown instruction %s\n", line_number, cmd);
 	exit(EXIT_FAILURE);
 }
