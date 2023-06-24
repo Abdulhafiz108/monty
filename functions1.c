@@ -84,6 +84,11 @@ int _execute1(stack_t **stack, char *cmd, int line_number)
 		sub(stack, line_number);
 		return (0);
 	}
+	if (strcmp(cmd, "div") == 0)
+	{
+		_div(stack, line_number);
+		return (0);
+	}
 	return (1);
 }
 
@@ -100,13 +105,14 @@ void sub(stack_t **stack, unsigned int line_number)
 
 	if ((*stack == NULL) || ((*stack)->next == NULL))
 	{
-		fprintf(stderr, "L%d: can't sub, stack too short", line_number);
+		fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	new = *stack;
 	new = new->next;
 	dif = (new->n) - (new->prev->n);
 	new->n = dif;
+	new->prev = NULL;
 	free(*stack);
 	*stack = new;
 }
