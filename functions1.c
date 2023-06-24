@@ -43,3 +43,26 @@ void add(stack_t **stack, unsigned int line_number)
 	free(new);
 	(*stack)->prev = NULL;
 }
+
+/**
+ * _free - Frees all allocated memory.
+ * @stack: Pointer to the topmost element of stack.
+ * Return: 0 on success.
+ */
+
+int _free(stack_t **stack)
+{
+	stack_t *new;
+
+	if (*stack == NULL)
+		return (0);
+
+	while (*stack != NULL)
+	{
+		new = *stack;
+		*stack = (*stack)->next;
+		(*stack)->prev = NULL;
+		free(new);
+	}
+	return (0);
+}

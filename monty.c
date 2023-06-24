@@ -35,6 +35,7 @@ int main(int argc, char *argv[])
 			_execute(&stack, cmd, line_number);
 		}
 	}
+	_free(&stack);
 	fclose(file);
 	exit(EXIT_SUCCESS);
 }
