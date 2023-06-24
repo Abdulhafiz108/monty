@@ -50,5 +50,6 @@ void pop(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
 int _free(stack_t **stack);
-
+int _execute1(stack_t **stack, char *cmd, int line_number);
+void sub(stack_t **stack, unsigned int line_number);
 #endif

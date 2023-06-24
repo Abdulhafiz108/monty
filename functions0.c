@@ -41,9 +41,9 @@ int _execute(stack_t **stack, char *cmd, int line_number)
 		return (0);
 	}
 	if (strcmp(cmd, "nop") == 0)
-	{
 		return (0);
-	}
+	if (_execute1(stack, cmd, line_number) == 0)
+		return (0);
 	fprintf(stderr, "L%d: unknown instruction %s\n", line_number, cmd);
 	exit(EXIT_FAILURE);
 }

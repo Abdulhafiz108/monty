@@ -68,3 +68,44 @@ int _free(stack_t **stack)
 	}
 	return (0);
 }
+
+/**
+ * _execute - Compares input command with already builtin commands.
+ * @stack: Pointer to topmost element of stack.
+ * @cmd: Input command.
+ * @line_number.
+ */
+
+int _execute1(stack_t **stack, char *cmd, int line_number)
+{
+	if (strcmp(cmd, "sub") == 0)
+	{
+		sub(stack, line_number);
+		return (0);
+	}
+	return (1);
+}
+
+/**
+ * sub - Subtract the value of topmost elements from second topmost element.
+ * @stack: Pointer to the topmost stack.
+ * @line_number: The line number of command.
+ */
+
+void sub(stack_t **stack, unsigned int line_number)
+{
+	stack_t *new;
+	int dif;
+
+	if ((*stack == NULL) || ((*stack)->next == NULL))
+	{
+		fprintf(stderr, "L%d: can't sub, stack too short", line_number);
+		exit(EXIT_FAILURE);
+	}
+	new = *stack;
+	new = new->next;
+	dif = (new->n) - (new->prev->n);
+	new->n = dif;
+	free(*stack);
+	*stack = new;
+}
