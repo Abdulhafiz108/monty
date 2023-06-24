@@ -109,6 +109,11 @@ int _execute1(stack_t **stack, char *cmd, int line_number)
 		pstr(stack);
 		return (0);
 	}
+	if (strcmp(cmd, "rotl") == 0)
+	{
+		rot1(stack);
+		return (0);
+	}
 	return (1);
 }
 
