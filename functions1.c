@@ -70,10 +70,11 @@ int _free(stack_t **stack)
 }
 
 /**
- * _execute - Compares input command with already builtin commands.
+ * _execute1 - Compares input command with already builtin commands.
  * @stack: Pointer to topmost element of stack.
  * @cmd: Input command.
- * @line_number.
+ * @line_number: The line number of command.
+ * Return: 0 on success and 1 otherwise
  */
 
 int _execute1(stack_t **stack, char *cmd, int line_number)
