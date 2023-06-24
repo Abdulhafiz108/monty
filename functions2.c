@@ -55,3 +55,34 @@ void mul(stack_t **stack, unsigned int line_number)
 	free(*stack);
 	*stack = new;
 }
+
+/**
+ * mod - calculates the remainder of division between top most element and 2nd.
+ * @stack: Pointer to the topmost stack.
+ * @line_number: The line number of command.
+ */
+
+void mod(stack_t **stack, unsigned int line_number)
+{
+	stack_t *new;
+	int mod;
+
+	if ((*stack == NULL) || ((*stack)->next == NULL))
+	{
+		fprintf(stderr, "L%d: can't mod, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	if ((*stack)->n == 0)
+	{
+		fprintf(stderr, "L%d: division by zero\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	new = *stack;
+	new = new->next;
+	mod = (new->n) % (new->prev->n);
+	new->n = mod;
+	new->prev = NULL;
+	free(*stack);
+	*stack = new;
+}

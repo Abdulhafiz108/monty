@@ -94,6 +94,11 @@ int _execute1(stack_t **stack, char *cmd, int line_number)
 		mul(stack, line_number);
 		return (0);
 	}
+	if (strcmp(cmd, "mod") == 0)
+	{
+		mod(stack, line_number);
+		return (0);
+	}
 	return (1);
 }
 
