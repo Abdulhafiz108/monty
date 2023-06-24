@@ -86,3 +86,23 @@ void mod(stack_t **stack, unsigned int line_number)
 	free(*stack);
 	*stack = new;
 }
+/**
+ * pchar - prints the char equivalent of the value of topmost element.
+ * @stack: Pointer to the topmost stack.
+ * @line_number: The line number of command.
+ */
+
+void pchar(stack_t **stack, unsigned int line_number)
+{
+	if (*stack == NULL)
+	{
+		fprintf(stderr, "L%d: can't pchar, stack empty", line_number);
+		exit(EXIT_FAILURE);
+	}
+	if (((*stack)->n < 32) || ((*stack)->n > 126))
+	{
+		fprintf(stderr, "L%d: can't pchar, value out of range", line_number);
+		exit(EXIT_FAILURE);
+	}
+	printf("%c\n", (*stack)->n);
+}

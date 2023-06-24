@@ -99,6 +99,11 @@ int _execute1(stack_t **stack, char *cmd, int line_number)
 		mod(stack, line_number);
 		return (0);
 	}
+	if (strcmp(cmd, "pchar") == 0)
+	{
+		pchar(stack, line_number);
+		return (0);
+	}
 	return (1);
 }
 
