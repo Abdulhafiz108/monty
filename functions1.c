@@ -89,6 +89,11 @@ int _execute1(stack_t **stack, char *cmd, int line_number)
 		_div(stack, line_number);
 		return (0);
 	}
+	if (strcmp(cmd, "mul") == 0)
+	{
+		mul(stack, line_number);
+		return (0);
+	}
 	return (1);
 }
 
