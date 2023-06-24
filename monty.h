@@ -60,5 +60,7 @@ void pchar(stack_t **stack, unsigned int line_number);
 void pstr(stack_t **stack);
 /* functions3.c */
 void rot1(stack_t **stack);
+void rotr(stack_t **stack);
+int _execute2(stack_t **stack, char *cmd);
 
 #endif
