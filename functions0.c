@@ -67,7 +67,7 @@ void push(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	if ((atoi(arg) == 0) && (arg[0] != 0))
+	if ((atoi(arg) == 0) && (strcmp(arg, "0") != 0))
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
