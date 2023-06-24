@@ -111,7 +111,6 @@ void pchar(stack_t **stack, unsigned int line_number)
 /**
  * pstr - Prints a string out of all ascii values of the stack.
  * @stack: Pointer to the topmost stack.
- * @line_number: The line number of command.
  */
 
 void pstr(stack_t **stack)
