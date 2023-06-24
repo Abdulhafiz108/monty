@@ -57,12 +57,14 @@ int _free(stack_t **stack)
 	if (*stack == NULL)
 		return (0);
 
+	new = *stack;
 	while (*stack != NULL)
 	{
-		new = *stack;
-		*stack = (*stack)->next;
-		(*stack)->prev = NULL;
-		free(new);
+		new = new->next;
+		if (new != NULL)
+			new->prev = NULL;
+		free(*stack);
+		*stack = new;
 	}
 	return (0);
 }
