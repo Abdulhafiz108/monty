@@ -59,7 +59,6 @@ void push(stack_t **stack, unsigned int line_number)
 	int num;
 	stack_t *new;
 	char *arg = NULL;
-	int i;
 
 	arg = strtok(NULL, " ,$");
 	if (arg == NULL)
@@ -68,13 +67,10 @@ void push(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	for (i = 0; arg[i]; i++)
+	if ((atoi(arg) == 0) && (arg[0] != 0))
 	{
-		if (!isdigit(arg[i]))
-		{
-			fprintf(stderr, "L%d: usage: push integer\n", line_number);
-			exit(EXIT_FAILURE);
-		}
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		exit(EXIT_FAILURE);
 	}
 
 	num = atoi(arg);

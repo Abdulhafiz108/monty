@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * sub - Subtract the value of topmost elements from second topmost element.
+ * _div - Divides the second topmost values with topmost value.
  * @stack: Pointer to the topmost stack.
  * @line_number: The line number of command.
  */
