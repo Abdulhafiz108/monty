@@ -9,7 +9,7 @@ void rot1(stack_t **stack)
 {
 	stack_t *new;
 
-	if ((*stack != NULL) || ((*stack)->next != NULL))
+	if ((*stack != NULL) && ((*stack)->next != NULL))
 	{
 		new = *stack;
 		while (new->next != NULL)
@@ -31,7 +31,7 @@ void rotr(stack_t **stack)
 {
 	stack_t *new;
 
-	if ((*stack != NULL) || ((*stack)->next != NULL))
+	if ((*stack != NULL) && ((*stack)->next != NULL))
 	{
 		new = *stack;
 		while (new->next != NULL)
