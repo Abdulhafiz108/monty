@@ -32,7 +32,8 @@ int main(int argc, char *argv[])
 		if (line != NULL)
 		{
 			cmd = strtok(line, " ,$");
-			_execute(&stack, cmd, line_number);	
+			if (cmd[0] != '#')
+				_execute(&stack, cmd, line_number);	
 		}
 	}
 	_free(&stack);
