@@ -104,6 +104,11 @@ int _execute1(stack_t **stack, char *cmd, int line_number)
 		pchar(stack, line_number);
 		return (0);
 	}
+	if (strcmp(cmd, "pstr") == 0)
+	{
+		pstr(stack);
+		return (0);
+	}
 	return (1);
 }
 

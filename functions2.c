@@ -86,6 +86,7 @@ void mod(stack_t **stack, unsigned int line_number)
 	free(*stack);
 	*stack = new;
 }
+
 /**
  * pchar - prints the char equivalent of the value of topmost element.
  * @stack: Pointer to the topmost stack.
@@ -105,4 +106,25 @@ void pchar(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	printf("%c\n", (*stack)->n);
+}
+
+/**
+ * pstr - Prints a string out of all ascii values of the stack.
+ * @stack: Pointer to the topmost stack.
+ * @line_number: The line number of command.
+ */
+
+void pstr(stack_t **stack)
+{
+	stack_t *new;
+
+	new = *stack;
+	while (new != NULL)
+	{
+		if ((new->n < 1) || (new->n > 127))
+			break;
+		putchar(new->n);
+		new = new->next;
+	}
+	putchar('\n');
 }
